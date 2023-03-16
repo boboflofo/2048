@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build && postcss src/tailwind.css -o public/tailwind.css"
+  publish = "public"
