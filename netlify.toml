@@ -1,4 +1,0 @@
-[build]
-  command = "npm run build && npx postcss src/index.css -o src/index.css"
-  publish = "out"
-
