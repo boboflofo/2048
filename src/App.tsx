@@ -1,4 +1,4 @@
-import { useState ,useEffect } from 'react'
+import { useState ,useEffect, ChangeEvent } from 'react'
 
 function App() {
   
@@ -12,7 +12,7 @@ const [bestscore, setBestScore] = useState(0)
 function bestscoretracker() {
   if (bestscore < score) {
     setBestScore(score)
-    localStorage.setItem('bestscore', score)
+    localStorage.setItem('bestscore', JSON.stringify(score))
   }
 }
 
@@ -20,7 +20,7 @@ function refresh() {
   window.location.reload();
 }
 
-  function randomize(n) {
+  function randomize(n : number) {
     return Math.floor(Math.random() * n)
   }
 
@@ -53,7 +53,7 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event:any) => {
     if (event.key === 'ArrowUp') {
       up()
     }
@@ -99,7 +99,7 @@ useEffect(() => {
   
 }
 
-function checklost(gameboard) {
+function checklost(gameboard: number[][] = [[],[],[],[]]) {
   let count = 0
   for (let i = 0; i < gameboard.length ; i++){
    for (let j = 0; j < gameboard[i].length ; j++){
@@ -183,7 +183,7 @@ function checklost(gameboard) {
  }
 }
 
-  function checkwon(gameboard) {
+  function checkwon(gameboard: number[][] = [[],[],[],[]]) {
     for(let row of gameboard) {
       for(let num of row) {
         if (num == 2048) {
@@ -194,7 +194,7 @@ function checklost(gameboard) {
     }
   }
 
-  function removezero(gameboard) {
+  function removezero(gameboard: number[][] = [[],[],[],[]]) {
     let j = 0;
     for (let row of gameboard) {
       let val = 0;
@@ -205,7 +205,7 @@ function checklost(gameboard) {
 
  
 
-  function combine(copy){
+  function combine(copy: number[][] = [[],[],[],[]]){
     removezero(copy);
     for (let row of copy) {
       for (let i = 0; i < row.length - 1; i++) {
@@ -225,8 +225,8 @@ function checklost(gameboard) {
     }
   }
 
-  function verticalize(copy) {
-    let verticalcopy = [[],[],[],[]]
+  function verticalize(copy: number[][] = [[],[],[],[]]) {
+    let verticalcopy: number[][] = [[],[],[],[]]
     for (let i = 0; i < copy.length ; i++){
       for (let j = 0; j < copy[i].length ; j++){
        verticalcopy[i].push(copy[j][i]) 
@@ -246,13 +246,6 @@ function checklost(gameboard) {
     }
     setGameBoard(copy);
   }
-
-  // useEffect(() => {
-  //   if (changed) {
-  //     addtwo();
-  //     setChanged(false);
-  //   }
-  // }, [maingameboard]);
 
   useEffect(() => {
     if (changed) {
