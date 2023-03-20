@@ -325,31 +325,38 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
   
   return (
   <div>
-    <div className = 'flex justify-center '> 
-      <div className = 'mr-3'>Score:{score}</div>
+    <div className = 'd-flex justify-content-center'> 
+      <div className = 'me-3'>Score:{score}</div>
       {bestscore != 0 ? <div>Best Score:{bestscore}</div> : <div></div>}
     </div>
-    <div className= 'flex justify-center'><button onClick ={() => refresh()}>New Game</button></div>
-    <div className = 'flex justify-center'>
+    <div className= 'd-flex justify-content-center'><button onClick ={() => refresh()}>New Game</button></div>
+    <div className = 'd-flex justify-content-center'>
       
-      <div className="grid grid-rows-4 grid-cols-4 gap-2 w-1/2 ">
+    <div className="container">
+      <div className="row">
         {maingameboard.map((numList) => {
           return numList.map(num => (
-            <div className = 'flex justify-center border-black border-2'> 
-              {num === 0 ? null : num}
+            <div className='col-3 d-flex justify-content-center align-items-center border border-dark empty-div'> 
+              {num === 0 ? '' : num}
             </div>
           ))
           })
         }
       </div>
+      <style>
+        {`.empty-div {
+          min-height: 50px;
+        }`}
+      </style>
+    </div>
     </div>
 
-    <div className = 'flex justify-center mt-12'>
+    <div className = 'd-flex justify-content-center mt-3'>
       <div>
-        <div className = 'flex justify-center'> <button onClick={() => up()}>Up</button> </div>
-        <button className = 'mr-6'onClick={() => left()}>Left</button>
+        <div className = 'd-flex justify-content-center'> <button onClick={() => up()}>Up</button> </div>
+        <button className = 'me-3'onClick={() => left()}>Left</button>
         <button onClick={() => right()}>Right</button>
-        <div className = 'flex justify-center'> <button onClick={() => down()}>Down</button> </div>
+        <div className = 'd-flex justify-content-center'> <button onClick={() => down()}>Down</button> </div>
       </div> 
     </div>
 
