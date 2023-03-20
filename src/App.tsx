@@ -336,7 +336,7 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
       <div className="row">
         {maingameboard.map((numList) => {
           return numList.map(num => (
-            <div className='col-3 d-flex justify-content-center align-items-center border border-dark empty-div'> 
+            <div className='col-3 d-flex justify-content-center align-items-center border border-dark fs-4 empty-div'> 
               {num === 0 ? '' : num}
             </div>
           ))
