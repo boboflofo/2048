@@ -1,4 +1,7 @@
 import { useState ,useEffect, ChangeEvent } from 'react'
+import './App.css'
+
+
 
 function App() {
   
@@ -332,31 +335,29 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     <div className= 'd-flex justify-content-center'><button onClick ={() => refresh()}>New Game</button></div>
     <div className = 'd-flex justify-content-center'>
       
-    <div className="container">
+    <div className = 'gameboard-container'>
+    <div className="container-fluid">
       <div className="row">
         {maingameboard.map((numList) => {
           return numList.map(num => (
-            <div className='col-3 d-flex justify-content-center align-items-center border border-dark fs-4 empty-div'> 
+            <div className='col-3 d-flex justify-content-center align-items-center border border-dark empty-div'> 
               {num === 0 ? '' : num}
             </div>
           ))
           })
         }
       </div>
-      <style>
-        {`.empty-div {
-          min-height: 50px;
-        }`}
-      </style>
+
+    </div>
     </div>
     </div>
 
     <div className = 'd-flex justify-content-center mt-3'>
       <div>
-        <div className = 'd-flex justify-content-center'> <button onClick={() => up()}>Up</button> </div>
-        <button className = 'me-3'onClick={() => left()}>Left</button>
-        <button onClick={() => right()}>Right</button>
-        <div className = 'd-flex justify-content-center'> <button onClick={() => down()}>Down</button> </div>
+        <div className = 'd-flex justify-content-center'> <button className = 'direction-button-up-down' onClick={() => up()}></button> </div>
+        <button className = 'direction-button-left-right' onClick={() => left()}></button>
+        <button className = 'direction-button-left-right'onClick={() => right()}></button>
+        <div className = 'd-flex justify-content-center '> <button className = 'direction-button-up-down' onClick={() => down()}></button> </div>
       </div> 
     </div>
 
