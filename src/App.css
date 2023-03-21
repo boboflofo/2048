@@ -29,7 +29,7 @@
 
 .direction-button-up-down {
   width: 40px;
-  height: 65px;
+  height: 60px;
   border-radius: 10px;
   margin-top: -2px;
   border-color: #F8C8DC;
@@ -38,7 +38,7 @@
 }
 
 .direction-button-left-right {
-  width: 65px;
+  width: 60px;
   height: 40px;
   margin-right: 19px;
   margin-left: 19px;
