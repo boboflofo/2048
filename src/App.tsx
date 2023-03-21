@@ -328,11 +328,14 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
   
   return (
   <div>
-    <div className = 'd-flex justify-content-center'> 
-      <div className = 'me-3'>Score:{score}</div>
-      {bestscore != 0 ? <div>Best Score:{bestscore}</div> : <div></div>}
+
+    <div className = 'scoreboard-container'> 
+      <div className = 'score'>Score:{score}</div>
+      {bestscore != 0 ? <div className = 'score'>Best Score:{bestscore}</div> : <div></div>}
     </div>
-    <div className= 'd-flex justify-content-center'><button onClick ={() => refresh()}>New Game</button></div>
+   
+
+    <div className= 'd-flex justify-content-center'><button className = 'newgame'onClick ={() => refresh()}>New Game</button></div>
     <div className = 'd-flex justify-content-center'>
       
     <div className = 'gameboard-container'>
@@ -340,7 +343,7 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
       <div className="row">
         {maingameboard.map((numList) => {
           return numList.map(num => (
-            <div className='col-3 d-flex justify-content-center align-items-center border border-dark empty-div'> 
+            <div className='col-3 d-flex justify-content-center align-items-center empty-div numbox'> 
               {num === 0 ? '' : num}
             </div>
           ))
