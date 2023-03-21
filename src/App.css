@@ -30,10 +30,8 @@
 .direction-button-up-down {
   width: 40px;
   height: 65px;
-  background-color: ;
-  border-radius: 12px;
-  margin-top: -3px;
-  margin-bottom: -3px;
+  border-radius: 10px;
+  margin-top: -2px;
   border-color: #F8C8DC;
   background-color: #ffd1dc;
 
@@ -42,9 +40,9 @@
 .direction-button-left-right {
   width: 65px;
   height: 40px;
-  margin-right: 17px;
-  margin-left: 17px;
-  border-radius: 12px;
+  margin-right: 19px;
+  margin-left: 19px;
+  border-radius: 10px;
   border-color: #AEC6CF;
   background-color: 	#A7C7E7;
 }
