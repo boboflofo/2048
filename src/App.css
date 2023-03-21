@@ -29,7 +29,7 @@
   background-color: 	#daffe7;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 400px) {
   
   .empty-div {
     height: 75px; 
