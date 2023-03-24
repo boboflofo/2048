@@ -1,5 +1,7 @@
 import { useState ,useEffect, ChangeEvent } from 'react'
 import './App.css'
+import Confetti from 'react-confetti'
+import {useWindowSize} from '@react-hook/window-size'
 
 
 
@@ -11,6 +13,7 @@ const [lost, setLost] = useState(false)
 const [won, setWon] = useState(false)
 const [score,setScore] = useState(0)
 const [bestscore, setBestScore] = useState(0)
+const [width,height] = useWindowSize()
 
 function bestscoretracker() {
   if (bestscore < score) {
@@ -328,6 +331,13 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
   
   return (
   <div>
+    {won ? <Confetti
+          width = {width}
+          height = {height}
+          />
+          :
+          <div></div>
+        }
 
     <div className = 'scoreboard-container'> 
       <div className = 'score'>Score:{score}</div>
@@ -356,19 +366,19 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     </div>
 
     <div className = 'd-flex justify-content-center mt-3'>
-      <div>
+      <div className = 'game-pad'>
         <div className = 'd-flex justify-content-center'> <button className = 'direction-button-up-down' onClick={() => up()}></button> </div>
         <button className = 'direction-button-left-right' onClick={() => left()}></button>
         <button className = 'direction-button-left-right'onClick={() => right()}></button>
         <div className = 'd-flex justify-content-center '> <button className = 'direction-button-up-down' onClick={() => down()}></button> </div>
+        
+        {lost ? <div className = 'lost-won'>You Lost</div> : <div> </div>}
+        
+        {won ? <div className = 'lost-won'>you won</div> : <div> </div>}
       </div> 
     </div>
 
-    <div>
-      {lost ? <div>you lost</div> : <div> </div>}
-      
-      {won ? <div>you won</div> : <div> </div>}
-    </div>
+    
   </div>
   )
 }

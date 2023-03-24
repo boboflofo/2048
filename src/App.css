@@ -3,6 +3,17 @@
   font-size: 35px;
 }
 
+.lost-won{
+  position: absolute;
+  top: 0px;
+  left: -50px;
+  font-size: 18px;
+}
+
+.game-pad{
+  position: relative;
+}
+
 .newgame{
   border-radius: 8px;
   border:2px solid #779ecb;
