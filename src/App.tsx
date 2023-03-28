@@ -1,7 +1,9 @@
-import { useState ,useEffect, ChangeEvent } from 'react'
+import { useState ,useEffect, ChangeEvent} from 'react'
 import './App.css'
 import Confetti from 'react-confetti'
 import {useWindowSize} from '@react-hook/window-size'
+
+import { render } from 'react-dom';
 
 
 
@@ -320,6 +322,10 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
 
   
 
+ 
+
+  
+
 
   
 
@@ -339,7 +345,21 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
           <div></div>
         }
 
-    <div className = 'scoreboard-container'> 
+    <div className = 'scoreboard-container'>
+      <div className="game-title"><span className = 'Better'>Better</span><span className = 'title-2'>2048</span></div> 
+      <div className="dropdown rules">
+        <button type = 'button' className = 'btn btn-default dropdown-toggle rule-button' id = 'rules-dropdown'data-bs-toggle = 'dropdown'>
+          <i>Rules</i>
+        </button>
+        <div className="dropdown-menu no-arrow-keys rule-explanation" aria-labelledby = 'rules-dropdown'>
+          <b>How to Play:</b> <br></br>
+          <br></br>
+          <b>For Mobile Users:</b> Use the game-pad to combine like numbers<br></br>
+          <b>For PC Users:</b> Use arrow keys to combine like numbers<br></br>
+          <br></br>
+          <b>Goal -</b> Achieve a 2048 tile then go for a high score
+        </div>
+      </div>
       <div className = 'score'>Score:{score}</div>
       {bestscore != 0 ? <div className = 'score'>Best Score:{bestscore}</div> : <div></div>}
     </div>
@@ -349,6 +369,18 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     <div className = 'd-flex justify-content-center'>
       
     <div className = 'gameboard-container'>
+      <div className="big-screen-rules">
+      <div className="big-screen-win-loss">
+        {lost ? <div className = 'lost-won'>You Lost</div> : <div> </div>}
+        {won ? <div className = 'lost-won'>you won</div> : <div> </div>}
+      </div>
+      <b>How to Play:</b> <br></br>
+          <br></br>
+          <b>For Mobile Users:</b> Use the game-pad to combine like numbers<br></br>
+          <b>For PC Users:</b> Use arrow keys to combine like numbers<br></br>
+          <br></br>
+          <b>Goal -</b> Achieve a 2048 tile then go for a high score
+      </div>
     <div className="container-fluid">
       <div className="row">
         {maingameboard.map((numList) => {
@@ -382,6 +414,7 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
   </div>
   )
 }
+
 
 
 export default App
