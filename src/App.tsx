@@ -1,9 +1,8 @@
-import { useState ,useEffect, ChangeEvent} from 'react'
+import { useState ,useEffect, useRef, ChangeEvent} from 'react'
 import './App.css'
 import Confetti from 'react-confetti'
 import {useWindowSize} from '@react-hook/window-size'
 
-import { render } from 'react-dom';
 
 
 
@@ -16,6 +15,7 @@ const [won, setWon] = useState(false)
 const [score,setScore] = useState(0)
 const [bestscore, setBestScore] = useState(0)
 const [width,height] = useWindowSize()
+
 
 function bestscoretracker() {
   if (bestscore < score) {
@@ -265,9 +265,6 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     bestscoretracker()
   }, [maingameboard]);
 
- 
-
-  
 
   function right() {
     const copy = [...maingameboard];
@@ -320,6 +317,18 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     setGameBoard(unverticalizedcopy)
   }
 
+  const [stopConfetti, setStopConfetti] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setStopConfetti(true);
+    }, 15000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   
 
  
@@ -337,11 +346,12 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
   
   return (
   <div>
-    {won ? <Confetti
+    {won ? !stopConfetti && <Confetti
           width = {width}
           height = {height}
           numberOfPieces = {60}
           colors = {['#779ecb','#F8C8DC']}
+          tweenDuration = {15}
           />
           :
           <div></div>
