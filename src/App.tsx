@@ -9,7 +9,7 @@ import { render } from 'react-dom';
 
 function App() {
   
-const [maingameboard,setGameBoard] = useState([[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]])
+const [maingameboard,setGameBoard] = useState([[0,2048,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]])
 const [changed ,setChanged] = useState(false)
 const [lost, setLost] = useState(false)
 const [won, setWon] = useState(false)
@@ -340,6 +340,8 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     {won ? <Confetti
           width = {width}
           height = {height}
+          numberOfPieces = {60}
+          colors = {['#779ecb','#F8C8DC']}
           />
           :
           <div></div>
