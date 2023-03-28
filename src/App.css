@@ -55,12 +55,7 @@
   margin-bottom: 10px;
 }
 
-.big-screen-win-loss{
-  position:absolute;
-  top: 422px;
-  left: 437px;
-  
-}
+
 
 .rules {
   position: absolute;
@@ -125,6 +120,17 @@
     visibility: hidden;
 }
 
+  .gameboard-win-loss{
+    position:absolute;
+    top:135px;
+    left: 161px;
+  }
+
+  .lost-won{
+    width: 90px;
+    font-weight: bold;
+  }
+
   .rules{
     top: 30px; 
     margin-left: -10px;
@@ -155,13 +161,19 @@
     font-size:25px;
   }
 
+  .gameboard-win-loss{
+    position:absolute;
+    top:180px;
+    left: 195px;
+  }
+
   .rule-button{
     font-size: 20px;
   }
 
   .lost-won{
-    left: -104px;
-    font-size: 20px;
+    width: 150px;
+    font-size: 25px;
   }
 
   .rule-explanation{
@@ -202,6 +214,7 @@
     left: -203px;
     font-size: 30px;
     font-weight: bold;
+    width: 200px;
   }
 
   .rules{
@@ -212,6 +225,12 @@
     font-size: 15px;
     display: block;
     visibility: visible;
+  }
+
+  .gameboard-win-loss{
+    position:absolute;
+    top: 422px;
+    left: 437px;
   }
 
   .game-pad{

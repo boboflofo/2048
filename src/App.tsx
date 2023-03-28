@@ -369,11 +369,11 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
     <div className = 'd-flex justify-content-center'>
       
     <div className = 'gameboard-container'>
-      <div className="big-screen-rules">
-      <div className="big-screen-win-loss">
+      <div className="gameboard-win-loss">
         {lost ? <div className = 'lost-won'>You Lost</div> : <div> </div>}
-        {won ? <div className = 'lost-won'>you won</div> : <div> </div>}
+        {won ? <div className = 'lost-won'>You Won</div> : <div> </div>}
       </div>
+      <div className="big-screen-rules">
       <b>How to Play:</b> <br></br>
           <br></br>
           <b>For Mobile Users:</b> Use the game-pad to combine like numbers<br></br>
@@ -403,10 +403,6 @@ function checklost(gameboard: number[][] = [[],[],[],[]]) {
         <button className = 'direction-button-left-right' onClick={() => left()}></button>
         <button className = 'direction-button-left-right'onClick={() => right()}></button>
         <div className = 'd-flex justify-content-center '> <button className = 'direction-button-up-down' onClick={() => down()}></button> </div>
-        
-        {lost ? <div className = 'lost-won'>You Lost</div> : <div> </div>}
-        
-        {won ? <div className = 'lost-won'>you won</div> : <div> </div>}
       </div> 
     </div>
 
